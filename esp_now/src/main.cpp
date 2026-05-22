@@ -54,5 +54,5 @@ void loop() {
 
   esp_now_send(targetAddress, (uint8_t *)&sent_data, sizeof(sent_data));
   num++;
-  delay(2000);
+  delay(200);
 }
