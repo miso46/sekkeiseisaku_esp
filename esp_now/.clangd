@@ -1,0 +1,7 @@
+CompileFlags:
+  Add:
+    - --query-driver=/home/akiyama/.platformio/packages/toolchain-xtensa-esp32/bin/xtensa-esp32-elf-g++
+  Remove:
+    - -fno-tree-switch-conversion
+    - -fno-jump-tables
+    - -mlongcalls
