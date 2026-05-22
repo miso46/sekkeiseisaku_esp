@@ -1,7 +1,10 @@
 #include <WiFi.h>
 #include <esp_now.h>
 
-uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4, 0xA7, 0xA0, 0x60};
+// uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4,
+//                           0xA7, 0xA0, 0x60}; // 文字の比率が正常な方
+uint8_t targetAddress[] = {0xA4, 0xF0, 0x0F,
+                           0x81, 0xE5, 0x34}; // 文字が縦長の方
 esp_now_peer_info_t peerInfo;
 
 struct Data {
