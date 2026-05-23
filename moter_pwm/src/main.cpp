@@ -11,7 +11,7 @@ const int ledcChannel = 0;
 const int freq = 20000;
 const int bit = 8;
 
-int duty = 1;
+int duty = 255;
 bool flag = false;
 int count = 0;
 
@@ -21,7 +21,9 @@ void setup() {
   // PinをOUTPUTに設定
   pinMode(RUN_SWITCH_PIN, OUTPUT);
   pinMode(ROTATE_PIN_1, OUTPUT);
+  pinMode(ROTATE_PIN_1, OUTPUT);
   pinMode(ROTATE_PIN_2, OUTPUT);
+  pinMode(PWM_PIN, OUTPUT);
 
   // PinをHIGHにする
   digitalWrite(RUN_SWITCH_PIN, HIGH);
@@ -34,17 +36,24 @@ void setup() {
 }
 
 void loop() {
-  if (count > 5) {
+  if (count%2 == 1) {
     digitalWrite(ROTATE_PIN_1, LOW);
     digitalWrite(ROTATE_PIN_2, HIGH);
-  }
-  if (count > 10) {
+  }else{
+    digitalWrite(ROTATE_PIN_1, HIGH);
     digitalWrite(ROTATE_PIN_2, LOW);
   }
 
-  ledcWrite(ledcChannel, 50);
+  ledcWrite(ledcChannel, duty);
+  Serial.print("duty: ");
+  Serial.println(duty);
   delay(100);
-  ledcWrite(ledcChannel, 0);
-  delay(1000);
-  count++;
+  duty--;
+  if(duty < 0){
+	  duty = 255;
+	  count++;
+  }
+
+
 }
+
