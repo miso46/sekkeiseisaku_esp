@@ -1,5 +1,24 @@
-#include "HardwareSerial.h"
-#include "esp32-hal-ledc.h"
+// #include <Arduino.h>
+// #include <driver/pcnt.h>
+// const int SENSOR_PIN = 4;
+//
+// void setup() {
+//   Serial.begin(115200);
+//   pinMode(SENSOR_PIN, INPUT); // ピンを入力モードに設定
+// }
+//
+// void loop() {
+//   int sensorState = digitalRead(SENSOR_PIN);
+//
+//   if (sensorState == HIGH) {
+//     Serial.println("HIGH (1) : 遮光されています (物が挟まっている状態)");
+//   } else {
+//     Serial.println("LOW  (0) : 受光しています (何もない状態)");
+//   }
+//
+//   delay(500); // 0.5秒ごとに確認
+// }
+
 #include <Arduino.h>
 #include <driver/pcnt.h>
 
@@ -8,6 +27,8 @@ pcnt_unit_t unit = PCNT_UNIT_0;
 
 void setup() {
   Serial.begin(115200);
+
+  pinMode(PCN_PIN, INPUT);
 
   pcnt_config_t pcnt_config = {
       .pulse_gpio_num = PCN_PIN,
@@ -21,11 +42,13 @@ void setup() {
       .unit = unit,
       .channel = PCNT_CHANNEL_0,
   };
+
   pcnt_unit_config(&pcnt_config);
 
-  pcnt_set_filter_value(unit, 100);
+  pcnt_set_filter_value(unit, 1023);
   pcnt_filter_enable(unit);
 
+  pcnt_counter_pause(unit);
   pcnt_counter_clear(unit);
   pcnt_counter_resume(unit);
 }
