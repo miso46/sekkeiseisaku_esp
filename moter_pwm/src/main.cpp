@@ -9,9 +9,9 @@ const int PWM_PIN = 12; // 速度制御(PWM)
 // PWM関連
 const int ledcChannel = 0;
 const int freq = 20000;
-const int bit = 8;
+const int bit = 8; // 8bit = 0~255
 
-int duty = 255;
+int duty = 0;
 bool flag = false;
 int count = 0;
 
@@ -21,11 +21,10 @@ void setup() {
   // PinをOUTPUTに設定
   pinMode(RUN_SWITCH_PIN, OUTPUT);
   pinMode(ROTATE_PIN_1, OUTPUT);
-  pinMode(ROTATE_PIN_1, OUTPUT);
   pinMode(ROTATE_PIN_2, OUTPUT);
   pinMode(PWM_PIN, OUTPUT);
 
-  // PinをHIGHにする
+  // PinをHIGHにする（CW方向に設定）
   digitalWrite(RUN_SWITCH_PIN, HIGH);
   digitalWrite(ROTATE_PIN_1, HIGH);
   digitalWrite(ROTATE_PIN_2, LOW);
@@ -36,24 +35,18 @@ void setup() {
 }
 
 void loop() {
-  if (count%2 == 1) {
-    digitalWrite(ROTATE_PIN_1, LOW);
-    digitalWrite(ROTATE_PIN_2, HIGH);
-  }else{
-    digitalWrite(ROTATE_PIN_1, HIGH);
-    digitalWrite(ROTATE_PIN_2, LOW);
-  }
-
-  ledcWrite(ledcChannel, duty);
   Serial.print("duty: ");
   Serial.println(duty);
+
+  ledcWrite(ledcChannel, duty);
   delay(100);
-  duty--;
-  if(duty < 0){
-	  duty = 255;
-	  count++;
+  duty += 2;
+  count++;
+  if (duty > 255) {
+    duty = 255;
   }
 
-
+  if (count > 1000) {
+    duty = 0;
+  }
 }
-
