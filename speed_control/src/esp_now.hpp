@@ -1,24 +1,24 @@
 #pragma once
 #include <WiFi.h>
 #include <esp_now.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/semphr.h>
 
-extern uint8_t targetAddress[]; // main.cpp で定義
+extern uint8_t targetAddress[];
 extern esp_now_peer_info_t peerInfo;
 
 namespace espnow {
 
 struct Data {
   float current_position;
-  float speed;
+  float speed_mm_ms;
   float arrival_time_ms;
 };
 
-// コールバック関数のプロトタイプ（esp_now.cpp で定義）
 void onDataSent(const uint8_t *mac_addr, esp_now_send_status_t status);
 void onReceive(const uint8_t *mac_addr, const uint8_t *data, int len);
-
 void setupEspNow();
 
-} // namespace espnow
+Data getCar2();
 
-extern espnow::Data car2;
+} // namespace espnow

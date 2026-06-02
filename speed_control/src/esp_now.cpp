@@ -5,21 +5,39 @@ esp_now_peer_info_t peerInfo;
 
 namespace espnow {
 
+static Data car2_buf = {0.f, 0.f, std::numeric_limits<float>::infinity()};
+static SemaphoreHandle_t car2_mutex = xSemaphoreCreateMutex();
+
 void onDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   Serial.print("送信: ");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "成功" : "失敗");
 }
 
 void onReceive(const uint8_t *mac_addr, const uint8_t *data, int len) {
+  if (len != sizeof(Data))
+    return;
+
   Data received;
   memcpy(&received, data, sizeof(received));
-  car2 = received;
-  Serial.print("受信 position: ");
-  Serial.println(received.current_position);
-  Serial.print("受信 speed: ");
-  Serial.println(received.speed);
-  Serial.print("受信 arrival: ");
-  Serial.println(received.arrival_time_ms);
+
+  if (xSemaphoreTake(car2_mutex, 0) == pdTRUE) {
+    car2_buf = received;
+    xSemaphoreGive(car2_mutex);
+  }
+
+  Serial.printf("受信 position: %.1f  speed: %.3f  arrival: %.1f\n",
+                received.current_position, received.speed_mm_ms,
+                received.arrival_time_ms);
+}
+
+Data getCar2() {
+  Data snapshot;
+  // 排他で書き込めるらしい。わからん
+  if (xSemaphoreTake(car2_mutex, pdMS_TO_TICKS(5)) == pdTRUE) {
+    snapshot = car2_buf;
+    xSemaphoreGive(car2_mutex);
+  }
+  return snapshot;
 }
 
 void setupEspNow() {
@@ -32,6 +50,9 @@ void setupEspNow() {
     return;
   }
 
+  esp_now_register_send_cb(onDataSent);
+  esp_now_register_recv_cb(onReceive);
+
   memcpy(peerInfo.peer_addr, targetAddress, 6);
   peerInfo.channel = 0;
   peerInfo.encrypt = false;
@@ -39,9 +60,6 @@ void setupEspNow() {
     Serial.println("Failed to add peer");
     return;
   }
-
-  esp_now_register_send_cb(onDataSent);
-  esp_now_register_recv_cb(onReceive);
 }
 
 } // namespace espnow

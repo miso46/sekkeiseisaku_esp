@@ -3,6 +3,7 @@
 class PID {
 public:
   float kp, ki, kd;
+  float integral_limit = 255.f;
 
   PID(float kp, float ki, float kd) : kp(kp), ki(ki), kd(kd) {}
 
@@ -13,6 +14,12 @@ public:
 
     float error = setpoint - measured;
     integral += error * dt_s;
+
+    if (integral > integral_limit)
+      integral = integral_limit;
+    if (integral < -integral_limit)
+      integral = -integral_limit;
+
     float derivative = (error - prev_error) / dt_s;
     prev_error = error;
 

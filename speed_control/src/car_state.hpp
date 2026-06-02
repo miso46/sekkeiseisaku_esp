@@ -4,7 +4,7 @@
 
 class CarState {
 private:
-  long accumulated_count = 0; // オーバーフロー対策済み累積カウント
+  long accumulated_count = 0;
   float current_position = 0.f;
   float speed_mm_ms = 0.f;
   float arrival_time_ms = 0.f;
@@ -16,7 +16,7 @@ public:
   float get_speed_mm_ms() const { return speed_mm_ms; }
   float get_arrival_time_ms() const { return arrival_time_ms; }
 
-  // delta_count: 今回ループの差分カウント（PCNTクリア運用前提）
+  // delta_count: 今回ループの差分カウント
   void update(int16_t delta_count, float dt_ms) {
     if (dt_ms <= 0.f)
       return;
