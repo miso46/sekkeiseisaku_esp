@@ -7,7 +7,8 @@
 #include <chrono>
 #include <limits>
 
-constexpr float TARGET_SPEED_MM_MS = 0.5f;
+constexpr float TARGET_SPEED_MM_MS = 0.4f;
+constexpr float FF_BASE = 200.f; // 要調整：動き始めるギリギリの値より少し大きく
 
 uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4,
                            0xA7, 0xA0, 0x60}; // 文字の比率が正常な方
@@ -15,13 +16,13 @@ uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4,
 //                            0x81, 0xE5, 0x34}; // 文字が縦長の方
 CarState car_state;
 espnow::Data car2 = {0.f, 0.f, std::numeric_limits<float>::infinity()};
-PID pid(2.0f, 0.f, 0.1f);
+PID pid(20.0f, 20.f, 0.6f);
 
 std::chrono::system_clock::time_point t_prev;
 
 void setup() {
   Serial.begin(115200);
-  delay(1000); // シリアルモニタ接続待ち
+  delay(1000);
 
   Serial.println("System Start");
 
@@ -32,7 +33,6 @@ void setup() {
 }
 
 void loop() {
-  // 経過時間
   auto t_now = std::chrono::system_clock::now();
   const float dt_ms =
       static_cast<float>(
@@ -54,20 +54,19 @@ void loop() {
   // 他車情報取得
   car2 = espnow::getCar2();
 
-  // PIDによりモータ出力計算、書き込み
+  // PID + フィードフォワードでモータ出力
   const float speed = car_state.get_speed_mm_ms();
   const float error = TARGET_SPEED_MM_MS - speed;
-  const float output = pid.update(TARGET_SPEED_MM_MS, speed, dt_ms);
-  Motor::write(output);
+  const float pid_out = pid.update(TARGET_SPEED_MM_MS, speed, dt_ms);
+  Motor::write(FF_BASE + pid_out);
 
   // Serial出力
   Serial.printf("[PID] target=%.3f  speed=%.3f  err=%.3f  pwm=%.0f\n",
-                TARGET_SPEED_MM_MS, speed, error, output);
+                TARGET_SPEED_MM_MS, speed, error, FF_BASE + pid_out);
   Serial.printf("[POS] pos=%.1f mm  arrival=%.1f ms\n",
                 car_state.get_current_position(),
                 car_state.get_arrival_time_ms());
 
-  // 他車情報の表示
   if (car2.arrival_time_ms != std::numeric_limits<float>::infinity()) {
     Serial.printf("[CAR2] pos=%.1f mm  arrival=%.1f ms\n",
                   car2.current_position, car2.arrival_time_ms);

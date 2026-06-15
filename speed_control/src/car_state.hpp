@@ -1,5 +1,6 @@
 #pragma once
 #include "esp_now.hpp"
+#include "photoreflector.hpp"
 #include <limits>
 
 class CarState {
@@ -16,15 +17,21 @@ public:
   float get_speed_mm_ms() const { return speed_mm_ms; }
   float get_arrival_time_ms() const { return arrival_time_ms; }
 
-  // delta_count: 今回ループの差分カウント
   void update(int16_t delta_count, float dt_ms) {
     if (dt_ms <= 0.f)
       return;
 
     accumulated_count += delta_count;
-    const float new_pos = accumulated_count * pulse_spacing_mm;
-    this->speed_mm_ms = (new_pos - current_position) / dt_ms;
-    this->current_position = new_pos;
+    current_position = accumulated_count * pulse_spacing_mm;
+
+    uint32_t interval_us = PhotoReflector::pulse_interval_us;
+    uint32_t last_us = PhotoReflector::last_pulse_us;
+
+    if (interval_us == 0 || micros() - last_us > 100000UL) {
+      speed_mm_ms = 0.f;
+    } else {
+      speed_mm_ms = pulse_spacing_mm / (interval_us / 1000.f);
+    }
 
     if (speed_mm_ms <= 0.f) {
       arrival_time_ms = std::numeric_limits<float>::infinity();

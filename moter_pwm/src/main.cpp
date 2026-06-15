@@ -37,16 +37,13 @@ void setup() {
 void loop() {
   Serial.print("duty: ");
   Serial.println(duty);
-
   ledcWrite(ledcChannel, duty);
   delay(100);
-  duty += 2;
-  count++;
-  if (duty > 255) {
-    duty = 255;
-  }
 
-  if (count > 1000) {
-    duty = 0;
+  int max_speed = 255;
+  if (duty < max_speed) { // 255未満のときだけ加算
+    duty += 2;
+    if (duty > max_speed)
+      duty = max_speed;
   }
 }
