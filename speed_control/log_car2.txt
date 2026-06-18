@@ -1,0 +1,100 @@
+--- Terminal on /dev/ttyUSB0 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+␇����0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=278
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=281
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=285
+[POS] pos=0.0 mm  arrival=inf ms
+[PID] target=3.000  speed=0.000  err=3.000  pwm=288
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=291
+[POS] pos=0.0 mm  arrival=inf ms
+[PID] target=3.000  speed=0.000  err=3.000  pwm=294
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=297
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=300
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=303
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=306
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=309
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=312
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=315
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=318
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=321
+[POS] pos=0.0 mm  arrival=inf ms
+[PID] target=3.000  speed=0.000  err=3.000  pwm=324
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=327
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=330
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=334
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=337
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=340
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=343
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=346
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=349
+[POS] pos=0.0 mm  arrival=inf ms
+[PID] target=3.000  speed=0.000  err=3.000  pwm=352
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=355
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=358
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=361
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=364
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=367
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=370
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
+[PID] target=3.000  speed=0.000  err=3.000  pwm=373
+[POS] pos=0.0 mm  arrival=inf ms
+送信: 失敗
