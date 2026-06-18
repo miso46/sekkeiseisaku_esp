@@ -5,7 +5,7 @@
 #include <freertos/task.h>
 
 // Common pin mapping
-static constexpr int PCN_PIN = 4; // D2 on board mapping
+static constexpr int PCN_PIN = 21; // D6 (GPIO21) to avoid conflict with motor pins (D2-D5)
 
 #ifndef USE_RMT
 

@@ -2,17 +2,18 @@
 
 #include <Arduino.h>
 
-// XIAO ESP32C3 pin mapping
-// RUN_SWITCH_PIN: D3 (GPIO5)
-// ROTATE_PIN_1: D4  (GPIO6)
-// ROTATE_PIN_2: D6  (GPIO21)
-// PWM_PIN:       D7  (GPIO20)
+// XIAO ESP32C3 pin mapping (aligned with esp32-c3/src/main.cpp)
+// D2=GPIO4, D3=GPIO5, D4=GPIO6, D5=GPIO7
+// RUN_SWITCH_PIN: D2 (GPIO4)
+// ROTATE_PIN_1:   D3 (GPIO5)
+// ROTATE_PIN_2:   D4 (GPIO6)
+// PWM_PIN:        D5 (GPIO7)
 
 namespace Motor {
-static constexpr int RUN_SWITCH_PIN = 5;
-static constexpr int ROTATE_PIN_1 = 6;
-static constexpr int ROTATE_PIN_2 = 21;
-static constexpr int PWM_PIN = 20;
+static constexpr int RUN_SWITCH_PIN = 4; // D2
+static constexpr int ROTATE_PIN_1 = 5;   // D3
+static constexpr int ROTATE_PIN_2 = 6;   // D4
+static constexpr int PWM_PIN = 7;        // D5
 static constexpr int PWM_CHANNEL = 0;
 static constexpr int PWM_FREQ = 20000;
 static constexpr int PWM_RES = 8; // 0..255
