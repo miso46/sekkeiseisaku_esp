@@ -23,11 +23,25 @@ static void pulseTask(void *arg) {
 
     unsigned long pulses = PhotoReflector::getAndClearCount();
 
+    // Diagnostic accumulation: count pulses and print once per second
+    static unsigned long pulses_accum = 0;
+    static unsigned long last_diag_ms = 0;
+    pulses_accum += pulses;
+
     // Update car state
     if (g_state) {
       g_state->update(static_cast<long>(pulses), static_cast<float>(dt_ms));
       // Enqueue ESP-NOW send of latest state (non-blocking)
       espnow::enqueueSend(g_state->create_data());
+    }
+
+    unsigned long now_ms = millis();
+    if (now_ms - last_diag_ms >= 1000) {
+      last_diag_ms = now_ms;
+      unsigned long last_interval = PhotoReflector::getLastIntervalUs();
+      Serial.printf("pulse_proc: pulses_last_sec=%lu  last_interval_us=%lu  accumulated=%ld\n",
+                    pulses_accum, last_interval, (g_state ? (long)(g_state->get_current_position() / 10.0f) : 0));
+      pulses_accum = 0;
     }
   }
 }
