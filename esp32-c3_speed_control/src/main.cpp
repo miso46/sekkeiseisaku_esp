@@ -3,6 +3,7 @@
 #include "motor.hpp"
 #include "photoreflector.hpp"
 #include "pid.hpp"
+#include "pulse_processing.hpp"
 #include <HardwareSerial.h>
 #include <chrono>
 #include <limits>
@@ -25,6 +26,10 @@ void setup() {
   Motor::setup();
   PhotoReflector::setup();
   espnow::setupEspNow();
+
+  // start high-priority pulse processing task
+  startPulseProcessing(&car_state);
+
   t_prev = std::chrono::system_clock::now();
 }
 

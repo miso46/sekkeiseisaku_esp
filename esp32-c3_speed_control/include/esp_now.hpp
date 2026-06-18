@@ -21,4 +21,7 @@ void setupEspNow();
 
 Data getCar2();
 
+// Enqueue a Data object to be sent via ESP-NOW from the send task (non-blocking)
+void enqueueSend(const Data &d);
+
 } // namespace espnow
