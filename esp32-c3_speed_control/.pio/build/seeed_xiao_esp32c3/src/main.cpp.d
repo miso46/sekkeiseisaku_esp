@@ -186,4 +186,5 @@
  /home/akiyama/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_now.h \
  /home/akiyama/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32c3/include/esp_wifi/include/esp_wifi_types.h \
  include/motor.hpp include/pid.hpp include/pulse_processing.hpp \
+ include/stress_test.hpp \
  /home/akiyama/.platformio/packages/framework-arduinoespressif32/cores/esp32/HardwareSerial.h

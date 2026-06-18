@@ -10,14 +10,23 @@
 
 static void pulseGeneratorTask(void *arg) {
   (void)arg;
-  pinMode(PhotoReflector::PCN_PIN, OUTPUT);
+  pinMode(PCN_PIN, OUTPUT);
   const unsigned int pulseHighUs = 50; // high time in microseconds
   const unsigned int pulseLowUs = 50;  // low time -> ~10kHz pulses
+  unsigned long toggles = 0;
+  unsigned long lastPrint = millis();
+  Serial.println("pulse_gen: start");
   for (;;) {
-    digitalWrite(PhotoReflector::PCN_PIN, HIGH);
+    digitalWrite(PCN_PIN, HIGH);
     delayMicroseconds(pulseHighUs);
-    digitalWrite(PhotoReflector::PCN_PIN, LOW);
+    digitalWrite(PCN_PIN, LOW);
     delayMicroseconds(pulseLowUs);
+    toggles++;
+    if (millis() - lastPrint >= 1000) {
+      lastPrint = millis();
+      // Print the number of toggles and last measured interval from PhotoReflector
+      Serial.printf("pulse_gen: toggles=%lu  last_interval_us=%lu\n", toggles, PhotoReflector::getLastIntervalUs());
+    }
   }
 }
 

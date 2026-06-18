@@ -4,6 +4,7 @@
 #include "photoreflector.hpp"
 #include "pid.hpp"
 #include "pulse_processing.hpp"
+#include "stress_test.hpp"
 #include <HardwareSerial.h>
 #include <chrono>
 #include <limits>
@@ -30,6 +31,11 @@ void setup() {
   // start high-priority pulse processing task
   startPulseProcessing(&car_state);
 
+#ifdef STRESS_TEST
+  // start internal pulse generator + espnow flood for stress testing
+  startStressTest();
+#endif
+
   t_prev = std::chrono::system_clock::now();
 }
 
@@ -43,11 +49,9 @@ void loop() {
   if (dt_ms <= 0.f)
     return;
 
-  // PCNT のかわりに GPIO 割り込みで集計したパルス数を取得
-  unsigned long delta_count = PhotoReflector::getAndClearCount();
-
-  // CarState 更新
-  car_state.update(static_cast<long>(delta_count), dt_ms);
+  // Pulse counting and CarState update are handled in the high-priority pulse processing task.
+  // Do not call PhotoReflector::getAndClearCount() or car_state.update() here to avoid
+  // stealing counts from the pulse processing task.
 
   // 他車情報取得
   car2 = espnow::getCar2();
@@ -69,9 +73,8 @@ void loop() {
                   car2.current_position, car2.arrival_time_ms);
   }
 
-  // ESP-NOW 送信
-  espnow::Data sent = car_state.create_data();
-  esp_now_send(targetAddress, (uint8_t *)&sent, sizeof(sent));
+  // ESP-NOW sends are enqueued by the pulse processing task. No direct esp_now_send() here.
+  // If needed, main can still request a send via espnow::enqueueSend(car_state.create_data());
 
   delay(50);
 }

@@ -1,0 +1,34 @@
+--- Terminal on /dev/ttyACM0 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+System Start (XIAO ESP32-C3)
+Mac address: B0:A6:04:05:BF:00
+pulse_gen: start
+pulse_gen: toggles=7962  last_interval_us=125
+pulse_gen: toggles=15938  last_interval_us=125
+pulse_gen: toggles=23913  last_interval_us=125
+pulse_gen: toggles=31894  last_interval_us=125
+pulse_gen: toggles=39869  last_interval_us=126
+pulse_gen: toggles=47842  last_interval_us=125
+pulse_gen: toggles=55819  last_interval_us=125
+pulse_gen: toggles=63803  last_interval_us=125
+pulse_gen: toggles=71772  last_interval_us=125
+pulse_gen: toggles=79736  last_interval_us=126
+pulse_gen: toggles=87700  last_interval_us=125
+pulse_gen: toggles=95665  last_interval_us=125
+pulse_gen: toggles=103629  last_interval_us=126
+pulse_gen: toggles=111602  last_interval_us=125
+pulse_gen: toggles=119579  last_interval_us=125
+pulse_gen: toggles=127555  last_interval_us=125
+pulse_gen: toggles=135524  last_interval_us=125
+pulse_gen: toggles=143489  last_interval_us=126
+pulse_gen: toggles=151453  last_interval_us=125
+pulse_gen: toggles=159418  last_interval_us=125
+pulse_gen: toggles=167382  last_interval_us=125
+pulse_gen: toggles=175346  last_interval_us=125
+pulse_gen: toggles=183311  last_interval_us=125
+pulse_gen: toggles=191275  last_interval_us=125
+pulse_gen: toggles=199240  last_interval_us=126
+pulse_gen: toggles=207204  last_interval_us=125
+pulse_gen: toggles=215175  last_interval_us=125

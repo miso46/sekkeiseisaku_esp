@@ -4,10 +4,14 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
+// Common pin mapping
+static constexpr int PCN_PIN = 4; // D2 on board mapping
+
+#ifndef USE_RMT
+
 namespace PhotoReflector {
 
 // Using GPIO interrupt instead of PCNT for ESP32-C3 / XIAO
-static constexpr int PCN_PIN = 4; // D2 on board mapping
 
 inline volatile unsigned long last_pulse_us = 0;
 inline volatile unsigned long pulse_interval_us = 0;
@@ -57,3 +61,19 @@ inline unsigned long getLastIntervalUs() { return pulse_interval_us; }
 inline unsigned long getLastPulseUs() { return last_pulse_us; }
 
 } // namespace PhotoReflector
+
+#else // USE_RMT
+
+namespace PhotoReflector {
+
+// RMT-based implementation declared; defined in src/photoreflector_rmt.cpp
+
+void setup();
+unsigned long getAndClearCount();
+unsigned long getLastIntervalUs();
+unsigned long getLastPulseUs();
+void setProcessingTaskHandle(TaskHandle_t h);
+
+} // namespace PhotoReflector
+
+#endif // USE_RMT
