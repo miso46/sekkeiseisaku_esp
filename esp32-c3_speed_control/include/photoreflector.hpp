@@ -56,9 +56,28 @@ inline unsigned long getAndClearCount() {
   return c;
 }
 
-// Read last pulse interval (microseconds) - non-atomic but sufficient for diagnostics
-inline unsigned long getLastIntervalUs() { return pulse_interval_us; }
-inline unsigned long getLastPulseUs() { return last_pulse_us; }
+// Read last pulse interval (microseconds) - return an atomic snapshot to avoid races with ISR
+inline unsigned long getLastIntervalUs() {
+  noInterrupts();
+  unsigned long v = pulse_interval_us;
+  interrupts();
+  return v;
+}
+
+inline unsigned long getLastPulseUs() {
+  noInterrupts();
+  unsigned long v = last_pulse_us;
+  interrupts();
+  return v;
+}
+
+// Read current accumulated pulse_count without clearing (atomic)
+inline unsigned long peekCount() {
+  noInterrupts();
+  unsigned long v = pulse_count;
+  interrupts();
+  return v;
+}
 
 } // namespace PhotoReflector
 
