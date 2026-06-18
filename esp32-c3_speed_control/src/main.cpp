@@ -10,7 +10,6 @@
 constexpr float TARGET_SPEED_MM_MS = 0.4f;
 constexpr float FF_BASE = 200.f; // feedforward base
 
-uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4, 0xA7, 0xA0, 0x60};
 CarState car_state;
 espnow::Data car2 = {0.f, 0.f, std::numeric_limits<float>::infinity()};
 PID pid(20.0f, 20.f, 0.6f);
@@ -24,7 +23,7 @@ void setup() {
   Serial.println("System Start (XIAO ESP32-C3)");
 
   Motor::setup();
-  PhotoReflector::setupInterrupt();
+  PhotoReflector::setup();
   espnow::setupEspNow();
   t_prev = std::chrono::system_clock::now();
 }

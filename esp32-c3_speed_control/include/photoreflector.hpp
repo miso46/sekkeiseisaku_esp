@@ -20,7 +20,7 @@ void IRAM_ATTR onPulse() {
   pulse_count++;
 }
 
-inline void setupInterrupt() {
+inline void setup() {
   pinMode(PCN_PIN, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PCN_PIN), onPulse, RISING);
 }

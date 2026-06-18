@@ -1,6 +1,9 @@
 #include "esp_now.hpp"
 #include <HardwareSerial.h>
 
+// Target peer address centralized here
+uint8_t targetAddress[] = {0xD4, 0xE9, 0xF4, 0xA7, 0xA0, 0x60};
+
 esp_now_peer_info_t peerInfo;
 
 namespace espnow {
