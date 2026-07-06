@@ -1,0 +1,125 @@
+--- Terminal on /dev/ttyACM0 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(205ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(205ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(205ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
+counts(cleared)=0  peek=0  last_interval_us=0  last_pulse_us=0  total=208
+distance: total=1.040m  delta=0.000m
+rmt: active=1  batches=0
+speed: instant=0.000m/s (0.00km/h)  avg(200ms)=0.000m/s (0.00km/h)  pulses/s=0.00
