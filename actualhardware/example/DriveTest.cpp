@@ -2,8 +2,8 @@
 
 // ===== Pin Assign =====
 const int DRV_ENABLE_PIN = 4;   // GPIO4 (VCC + MODE)
-const int PHASE_PIN      = 5;   // GPIO5
-const int ENABLE_PIN     = 7;   // GPIO7(PWM)
+const int PHASE_PIN      = 7;   // D5
+const int ENABLE_PIN     = 5;   // D3
 
 // ===== PWM =====
 const int PWM_CH = 0;
