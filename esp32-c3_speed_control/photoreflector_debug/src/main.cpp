@@ -3,15 +3,27 @@
 
 // Simple debug program: print photoreflector count and last interval every 200 ms
 
+TaskHandle_t g_pulse_print_task = nullptr;
+
 void setup() {
   Serial.begin(115200);
   delay(500);
   Serial.println("PhotoReflector Debug Start");
 
+  // デバッグ用: ISR発火のたびに通知を受けてprintするタスクを作成
+  xTaskCreate([](void *arg) {
+    (void)arg;
+    for (;;) {
+      // ISRからの通知が来るまでここでブロック（ポーリングではない）
+      ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+      Serial.println("ISR: pulse detected!");
+    }
+  }, "pulse_print", 4096, NULL, 1, &g_pulse_print_task);
+
   Serial.println("calling PhotoReflector::setup()...");
   PhotoReflector::setup();
+  PhotoReflector::setProcessingTaskHandle(g_pulse_print_task); // ← これが重要
   Serial.println("returned from PhotoReflector::setup()");
-  // show initial RMT status immediately after setup
   Serial.printf("post-setup: rmt_active=%d  rmt_batches=%lu\n", PhotoReflector::isReady() ? 1 : 0, PhotoReflector::getRmtBatches());
 }
 

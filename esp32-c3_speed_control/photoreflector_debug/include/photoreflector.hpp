@@ -1,9 +1,9 @@
 #pragma once
 
 // Force RMT branch in this debug project
-#ifndef USE_RMT
-#define USE_RMT
-#endif
+//#ifndef USE_RMT
+//#define USE_RMT
+//#endif
 
 #include <Arduino.h>
 #include <freertos/FreeRTOS.h>
@@ -33,24 +33,17 @@ inline TaskHandle_t processing_task_handle = nullptr;
 
 inline void setProcessingTaskHandle(TaskHandle_t h) { processing_task_handle = h; }
 
+static constexpr unsigned long MIN_INTERVAL_US = 500;
 inline void IRAM_ATTR onPulse() {
-  // Minimal work in ISR: record time and increment count, notify processing task
   unsigned long now = micros();
+  if (last_pulse_us != 0 && (now - last_pulse_us) < MIN_INTERVAL_US) {
+    return; // ノイズとして無視
+  }
   if (last_pulse_us != 0) {
     pulse_interval_us = now - last_pulse_us;
   }
   last_pulse_us = now;
   pulse_count++;
-
-  // Notify processing task (if set) that new pulse(s) arrived
-  if (processing_task_handle != nullptr) {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    vTaskNotifyGiveFromISR(processing_task_handle, &xHigherPriorityTaskWoken);
-    // If a higher priority task was woken, yield
-    if (xHigherPriorityTaskWoken == pdTRUE) {
-      portYIELD_FROM_ISR();
-    }
-  }
 }
 
 inline void setup() {
@@ -89,6 +82,8 @@ inline unsigned long peekCount() {
   interrupts();
   return v;
 }
+inline bool isReady() { return true; }
+inline unsigned long getRmtBatches() { return 0; }
 
 } // namespace PhotoReflector
 
