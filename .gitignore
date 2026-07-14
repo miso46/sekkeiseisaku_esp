@@ -1,0 +1,19 @@
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+.piolibbuild/
+
+# PlatformIO build output
+*.pio/build/
+
+# SCons internal
+.sconsign*
+
+# 必要に応じて追加
+*.bin
+*.elf
+*.map
+*.o
+*.d
+*.a
