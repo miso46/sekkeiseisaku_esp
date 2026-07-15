@@ -38,6 +38,18 @@ inline unsigned long getAndClearCount() {
   return c;
 }
 
+struct TimingSnapshot {
+  unsigned long interval_us;
+  unsigned long last_pulse_us;
+};
+
+inline TimingSnapshot getTimingSnapshot() {
+  noInterrupts();
+  TimingSnapshot snapshot{pulse_interval_us, last_pulse_us};
+  interrupts();
+  return snapshot;
+}
+
 inline unsigned long getLastIntervalUs() {
   noInterrupts();
   unsigned long v = pulse_interval_us;

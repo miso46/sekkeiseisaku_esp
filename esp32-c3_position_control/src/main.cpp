@@ -83,8 +83,9 @@ static unsigned long last_loop_ms = 0;
 
 // パルス間隔から実速度を推定する。
 float estimateVelocityMps() {
-  unsigned long interval_us = PhotoReflector::getLastIntervalUs();
-  unsigned long last_pulse_us = PhotoReflector::getLastPulseUs();
+  auto timing = PhotoReflector::getTimingSnapshot();
+  unsigned long interval_us = timing.interval_us;
+  unsigned long last_pulse_us = timing.last_pulse_us;
 
   if (last_pulse_us == 0) {
     return 0.0f; // まだ1パルスも来ていない
@@ -143,7 +144,7 @@ void loop() {
   total_distance_mm += count * MM_PER_PULSE;
 
   float remaining_mm = TARGET_DISTANCE_MM - total_distance_mm;
-  if (remaining_mm < 0.0f) remaining_mm = 0.0f;
+  float remaining_mm_for_brake = max(remaining_mm, 0.0f);
 
   float v_actual_raw = estimateVelocityMps();
   // ローパスフィルタ: エンコーダのスリット間隔誤差による単発ノイズを均す
@@ -152,7 +153,7 @@ void loop() {
 
   if (state == State::RUNNING) {
     // 1. 残り距離から「速度上限」を計算
-    float v_limit_by_distance = sqrtf(2.0f * DECEL * (remaining_mm / 1000.0f));
+    float v_limit_by_distance = sqrtf(2.0f * DECEL * (remaining_mm_for_brake / 1000.0f));
     float v_target = min(V_MAX, v_limit_by_distance);
 
     // 2. スルーレート制限は「加速方向」だけにかける。
@@ -196,6 +197,7 @@ void loop() {
 
       // 5. dutyのスルーレート制限(出力の急変を抑える)
       duty = constrain(duty, duty_prev - MAX_DUTY_STEP_PER_LOOP, duty_prev + MAX_DUTY_STEP_PER_LOOP);
+      duty = max(duty, 0);
       duty_prev = duty;
 
       Motor::driveForward(duty);
