@@ -1,0 +1,73 @@
+--- Terminal on /dev/ttyACM0 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+0  accumulated=1
+pulse_gen: toggles=7828  last_interval_us=127
+pulse_proc: pulses_last_sec=7828  last_interval_us=190  accumulated=7829
+pulse_gen: toggles=15661  last_interval_us=127
+pulse_proc: pulses_last_sec=7833  last_interval_us=170  accumulated=15662
+pulse_gen: toggles=23493  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=172  accumulated=23494
+pulse_gen: toggles=31328  last_interval_us=128
+pulse_proc: pulses_last_sec=7835  last_interval_us=171  accumulated=31329
+pulse_gen: toggles=39160  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=172  accumulated=39161
+pulse_gen: toggles=46992  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=171  accumulated=46993
+pulse_gen: toggles=54825  last_interval_us=127
+pulse_proc: pulses_last_sec=7833  last_interval_us=171  accumulated=54826
+pulse_gen: toggles=62663  last_interval_us=128
+pulse_proc: pulses_last_sec=7838  last_interval_us=171  accumulated=62664
+pulse_gen: toggles=70493  last_interval_us=128
+pulse_proc: pulses_last_sec=7830  last_interval_us=172  accumulated=70494
+pulse_gen: toggles=78321  last_interval_us=128
+pulse_proc: pulses_last_sec=7828  last_interval_us=169  accumulated=78322
+pulse_proc: pulses_last_sec=7828  last_interval_us=127  accumulated=86150
+pulse_gen: toggles=86150  last_interval_us=127
+pulse_gen: toggles=93978  last_interval_us=128
+pulse_proc: pulses_last_sec=7829  last_interval_us=171  accumulated=93979
+pulse_proc: pulses_last_sec=7828  last_interval_us=127  accumulated=101807
+pulse_gen: toggles=101807  last_interval_us=127
+pulse_gen: toggles=109636  last_interval_us=127
+pulse_proc: pulses_last_sec=7830  last_interval_us=174  accumulated=109637
+pulse_gen: toggles=117468  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=174  accumulated=117469
+pulse_gen: toggles=125300  last_interval_us=128
+pulse_proc: pulses_last_sec=7832  last_interval_us=172  accumulated=125301
+pulse_gen: toggles=133131  last_interval_us=128
+pulse_proc: pulses_last_sec=7831  last_interval_us=174  accumulated=133132
+pulse_gen: toggles=140959  last_interval_us=128
+pulse_proc: pulses_last_sec=7828  last_interval_us=174  accumulated=140960
+pulse_proc: pulses_last_sec=7828  last_interval_us=128  accumulated=148788
+pulse_gen: toggles=148788  last_interval_us=128
+pulse_gen: toggles=156616  last_interval_us=128
+pulse_proc: pulses_last_sec=7829  last_interval_us=171  accumulated=156617
+pulse_gen: toggles=164444  last_interval_us=128
+pulse_proc: pulses_last_sec=7828  last_interval_us=173  accumulated=164445
+pulse_gen: toggles=172272  last_interval_us=127
+pulse_proc: pulses_last_sec=7828  last_interval_us=174  accumulated=172273
+pulse_proc: pulses_last_sec=7828  last_interval_us=127  accumulated=180101
+pulse_gen: toggles=180101  last_interval_us=127
+pulse_gen: toggles=187929  last_interval_us=128
+pulse_proc: pulses_last_sec=7829  last_interval_us=172  accumulated=187930
+pulse_gen: toggles=195757  last_interval_us=127
+pulse_proc: pulses_last_sec=7828  last_interval_us=174  accumulated=195758
+pulse_gen: toggles=203585  last_interval_us=127
+pulse_proc: pulses_last_sec=7828  last_interval_us=174  accumulated=203586
+pulse_gen: toggles=211414  last_interval_us=127
+pulse_proc: pulses_last_sec=7829  last_interval_us=174  accumulated=211415
+pulse_gen: toggles=219246  last_interval_us=128
+pulse_proc: pulses_last_sec=7832  last_interval_us=171  accumulated=219247
+pulse_gen: toggles=227078  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=174  accumulated=227079
+pulse_proc: pulses_last_sec=7831  last_interval_us=128  accumulated=234910
+pulse_gen: toggles=234910  last_interval_us=128
+pulse_proc: pulses_last_sec=7832  last_interval_us=128  accumulated=242742
+pulse_gen: toggles=242742  last_interval_us=128
+pulse_proc: pulses_last_sec=7832  last_interval_us=127  accumulated=250574
+pulse_gen: toggles=250574  last_interval_us=127
+pulse_proc: pulses_last_sec=7832  last_interval_us=128  accumulated=258406
+pulse_gen: toggles=258406  last_interval_us=128
+pulse_gen: toggles=266235  last_interval_us=128
+pulse_proc: pulses_last_sec=7830  last_interval_us=174  accumulated=266236
